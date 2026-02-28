@@ -130,11 +130,11 @@
       group: Human
 
 - type: entity
-  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganHumanExternal ]
+  parent: [ OrganBaseTorsoSexedN, OrganBaseTorso, OrganHumanExternal ]
   id: OrganHumanTorso
 
 - type: entity
-  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganHumanExternal ]
+  parent: [ OrganBaseHeadSexedN, OrganBaseHead, OrganHumanExternal ]
   id: OrganHumanHead
   components:
   - type: VisualOrganMarkings

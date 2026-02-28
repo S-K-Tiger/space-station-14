@@ -442,6 +442,20 @@
       Female: head_f
 
 - type: entity
+  id: OrganBaseHeadSexedN
+  abstract: true
+  components:
+  - type: Sprite
+    state: head_m
+  - type: VisualOrgan
+    data:
+      state: head_m
+    sexStateOverrides:
+      Male: head_m
+      Female: head_f
+      Unsexed: head_n
+
+- type: entity
   id: OrganBaseTorsoSexed
   abstract: true
   components:
