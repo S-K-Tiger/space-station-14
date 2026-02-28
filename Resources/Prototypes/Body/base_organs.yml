@@ -453,3 +453,17 @@
     sexStateOverrides:
       Male: torso_m
       Female: torso_f
+
+- type: entity
+  id: OrganBaseTorsoSexedN
+  abstract: true
+  components:
+  - type: Sprite
+    state: torso_m
+  - type: VisualOrgan
+    data:
+      state: torso_m
+    sexStateOverrides:
+      Male: torso_m
+      Female: torso_f
+      Unsexed: torso_n
