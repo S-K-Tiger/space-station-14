@@ -113,6 +113,8 @@ public partial class NavMapControl : MapGridControl
         Pressed = true,
     };
 
+    private readonly PanelContainer _topPanel;
+
     public NavMapControl() : base(MinDisplayedRange, MaxDisplayedRange, DefaultDisplayedRange)
     {
         IoCManager.InjectDependencies(this);
@@ -126,12 +128,11 @@ public partial class NavMapControl : MapGridControl
         HorizontalExpand = true;
         VerticalExpand = true;
 
-        var topPanel = new PanelContainer()
+        _topPanel = new PanelContainer()
         {
             StyleClasses = { StyleClass.PanelDark },
             VerticalExpand = false,
             HorizontalExpand = true,
-            SetWidth = 650f,
             Children =
             {
                 new BoxContainer()
@@ -153,7 +154,7 @@ public partial class NavMapControl : MapGridControl
             HorizontalExpand = true,
             Children =
             {
-                topPanel,
+                _topPanel,
                 new Control()
                 {
                     Name = "DrawingControl",
@@ -164,7 +165,7 @@ public partial class NavMapControl : MapGridControl
         };
 
         AddChild(topContainer);
-        topPanel.Measure(Vector2Helpers.Infinity);
+        _topPanel.Measure(Vector2Helpers.Infinity);
 
         _recenter.OnPressed += args =>
         {
@@ -172,6 +173,13 @@ public partial class NavMapControl : MapGridControl
         };
 
         ForceNavMapUpdate();
+        _topPanel.SetWidth = this.SetWidth;
+        this.OnResized += UpdateTopPanelWidth;
+    }
+
+    /// Allow the PanelContainer to dynamically take up the available space.
+    private void UpdateTopPanelWidth() {
+        _topPanel.SetWidth = this.SetWidth;
     }
 
     public void ForceNavMapUpdate()
