@@ -1,0 +1,7 @@
+<cartridges:StationMapUiFragment xmlns="https://spacestation14.io"
+        xmlns:cartridges="clr-namespace:Content.Client.CartridgeLoader.Cartridges"
+        xmlns:ui="clr-namespace:Content.Client.Pinpointer.UI"
+        Margin="1 0 1 0">
+    <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>
+    <ui:NavMapControl Name="NavMapScreen" MinSize="530 323" SetSize="530 323" MaxSize="530 323"/>
+</cartridges:StationMapUiFragment>
